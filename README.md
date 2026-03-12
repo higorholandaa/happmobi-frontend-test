@@ -130,6 +130,18 @@ A aplicação é totalmente responsiva e foi desenvolvida seguindo a abordagem m
 - Validação de formulários no frontend
 - Headers de autorização em todas as requisições à API
 
+### ⚠️ Vulnerabilidades Conhecidas
+
+Angular 18.2.14 possui vulnerabilidades de segurança conhecidas sem patches disponíveis para a versão 18.x. Consulte [SECURITY.md](SECURITY.md) para detalhes completos.
+
+**Resumo**: As vulnerabilidades identificadas (XSS via SVG, MathML, i18n) têm **risco baixo** nesta aplicação pois:
+- Não há upload ou renderização de SVG gerado pelo usuário
+- Não usa MathML
+- Não implementa i18n com conteúdo do usuário
+- Usa JWT em headers (não cookies) evitando XSRF
+
+**Recomendação**: Para ambientes de produção, considere atualizar para Angular 19+ que possui patches de segurança.
+
 ## 👥 Autor
 
 Desenvolvido para processo seletivo da Happmobi
