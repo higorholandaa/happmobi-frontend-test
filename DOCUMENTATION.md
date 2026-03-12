@@ -105,7 +105,7 @@ export const environment = {
 
 2. Descomente o código da API real nos serviços:
    - `src/app/services/auth.service.ts` (linha ~48)
-   - `src/app/services/vehicle-list.component.ts` (linha ~94)
+   - `src/app/components/vehicle-list/vehicle-list.component.ts` (linha ~94)
 
 ### Endpoints Esperados da API
 
