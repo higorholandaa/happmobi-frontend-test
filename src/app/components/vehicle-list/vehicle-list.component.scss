@@ -1,0 +1,301 @@
+.app-toolbar {
+  background: #252836 !important;
+  color: white;
+  padding: 0 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  
+  .toolbar-title {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.container {
+  min-height: calc(100vh - 64px);
+  background: #1a1d29;
+  padding: 20px;
+  
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
+}
+
+.filter-card {
+  background: #252836;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  
+  .filter-title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    
+    mat-icon {
+      margin-right: 8px;
+      color: #667eea;
+    }
+  }
+  
+  .filter-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .filter-field {
+    width: 100%;
+  }
+  
+  .clear-button {
+    grid-column: 1 / -1;
+    background: #3a3d4e;
+    color: #fff;
+    border-radius: 12px;
+    height: 48px;
+    
+    &:hover {
+      background: #4a4d5e;
+    }
+  }
+}
+
+::ng-deep .filter-card {
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      background: #1a1d29;
+      border-radius: 12px;
+    }
+    
+    input, .mat-mdc-select {
+      color: #fff;
+    }
+    
+    .mat-mdc-input-element::placeholder {
+      color: #8b8d97;
+    }
+    
+    .mat-mdc-form-field-icon-prefix {
+      color: #667eea;
+    }
+    
+    label, .mat-mdc-select-value {
+      color: #8b8d97;
+    }
+    
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: #3a3d4e;
+    }
+    
+    &.mat-focused {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: #667eea !important;
+      }
+    }
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  
+  p {
+    margin-top: 20px;
+    color: #8b8d97;
+    font-size: 16px;
+  }
+  
+  mat-spinner {
+    ::ng-deep circle {
+      stroke: #667eea;
+    }
+  }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  
+  mat-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    color: #eb4d4b;
+    margin-bottom: 16px;
+  }
+  
+  p {
+    color: #8b8d97;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  
+  mat-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    color: #667eea;
+    margin-bottom: 16px;
+  }
+  
+  p {
+    color: #8b8d97;
+    font-size: 16px;
+  }
+}
+
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.vehicle-card {
+  background: #252836;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  .vehicle-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: #1a1d29;
+    
+    .reserved-chip,
+    .available-chip {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .reserved-chip {
+      background: #eb4d4b;
+      color: white;
+    }
+    
+    .available-chip {
+      background: #00b894;
+      color: white;
+    }
+  }
+  
+  mat-card-content {
+    padding: 16px;
+    
+    .vehicle-name {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 16px 0;
+    }
+    
+    .vehicle-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      
+      .detail-item {
+        display: flex;
+        align-items: center;
+        color: #8b8d97;
+        font-size: 13px;
+        
+        mat-icon {
+          font-size: 18px;
+          width: 18px;
+          height: 18px;
+          margin-right: 8px;
+          color: #667eea;
+        }
+      }
+    }
+  }
+  
+  mat-card-actions {
+    padding: 0 16px 16px;
+    
+    .action-button {
+      width: 100%;
+      height: 48px;
+      border-radius: 12px;
+      font-weight: 600;
+      
+      mat-icon {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+::ng-deep .mat-mdc-raised-button.mat-primary {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+::ng-deep .mat-mdc-raised-button.mat-warn {
+  background: linear-gradient(90deg, #eb4d4b 0%, #d63031 100%);
+  color: white;
+}
+
+::ng-deep .mat-mdc-chip.mat-mdc-standard-chip {
+  border-radius: 8px;
+  font-weight: 600;
+}

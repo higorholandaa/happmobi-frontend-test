@@ -1,0 +1,56 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-content>
+      <div class="login-header">
+        <div class="logo">
+          <mat-icon>directions_car</mat-icon>
+        </div>
+        <h1>GUARDIANS</h1>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput type="email" formControlName="email" placeholder="Digite seu e-mail">
+          <mat-icon matPrefix>email</mat-icon>
+          <mat-error *ngIf="email?.hasError('required')">
+            E-mail é obrigatório
+          </mat-error>
+          <mat-error *ngIf="email?.hasError('email')">
+            E-mail inválido
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="Digite sua senha">
+          <mat-icon matPrefix>lock</mat-icon>
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="password?.hasError('required')">
+            Senha é obrigatória
+          </mat-error>
+          <mat-error *ngIf="password?.hasError('minlength')">
+            Senha deve ter no mínimo 6 caracteres
+          </mat-error>
+        </mat-form-field>
+
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid || loading">
+          {{ loading ? 'ENTRANDO...' : 'ENTRAR' }}
+        </button>
+      </form>
+
+      <div class="footer-links">
+        <a href="#" (click)="$event.preventDefault()">Esqueci minha senha</a>
+        <a href="#" class="signup-link" (click)="$event.preventDefault()">
+          Ainda não tem cadastro? <span>Crie conta</span>
+        </a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
