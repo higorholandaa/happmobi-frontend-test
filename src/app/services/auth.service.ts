@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, BehaviorSubject, of } from 'rxjs';
+import { tap, delay } from 'rxjs/operators';
 import { LoginRequest, LoginResponse, User } from '../models/user.model';
 
 @Injectable({
@@ -17,6 +17,27 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(credentials: LoginRequest): Observable<LoginResponse> {
+    // Mock login for demonstration - remove this and uncomment the real API call below
+    const mockResponse: LoginResponse = {
+      token: 'mock-jwt-token-' + Date.now(),
+      user: {
+        id: '1',
+        name: 'Marcos Silva',
+        email: credentials.email
+      }
+    };
+    
+    return of(mockResponse).pipe(
+      delay(800),
+      tap(response => {
+        this.setToken(response.token);
+        this.setCurrentUser(response.user);
+        this.currentUserSubject.next(response.user);
+      })
+    );
+    
+    // Real API call - uncomment to use with backend:
+    /*
     return this.http.post<LoginResponse>(`${this.apiUrl}/auth/login`, credentials)
       .pipe(
         tap(response => {
@@ -25,6 +46,7 @@ export class AuthService {
           this.currentUserSubject.next(response.user);
         })
       );
+    */
   }
 
   logout(): void {

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { VehicleService } from '../../services/vehicle.service';
+import { MockDataService } from '../../services/mock-data.service';
 import { AuthService } from '../../services/auth.service';
 import { Vehicle, VehicleFilter } from '../../models/vehicle.model';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -41,13 +42,14 @@ export class VehicleListComponent implements OnInit {
   loading = false;
   errorMessage = '';
   
-  brands = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Volkswagen', 'Fiat', 'Hyundai', 'Nissan'];
+  brands = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Volkswagen', 'Fiat', 'Hyundai', 'Nissan', 'Mini', 'Jeep', 'Renault'];
   categories = ['Sedã', 'SUV', 'Hatchback', 'Pickup', 'Esportivo'];
-  years = [2024, 2023, 2022, 2021, 2020, 2019, 2018];
+  years = [2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017];
 
   constructor(
     private fb: FormBuilder,
     private vehicleService: VehicleService,
+    private mockDataService: MockDataService,
     private authService: AuthService,
     private router: Router
   ) {
@@ -72,6 +74,22 @@ export class VehicleListComponent implements OnInit {
     this.loading = true;
     this.errorMessage = '';
     
+    // Use mock data for demonstration
+    this.mockDataService.getMockVehicles().subscribe({
+      next: (vehicles) => {
+        this.vehicles = vehicles;
+        this.filteredVehicles = vehicles;
+        this.loading = false;
+      },
+      error: (error) => {
+        this.loading = false;
+        this.errorMessage = 'Erro ao carregar veículos';
+        console.error('Error loading vehicles:', error);
+      }
+    });
+    
+    // To use real API, uncomment the code below and comment the mock code above:
+    /*
     this.vehicleService.getVehicles().subscribe({
       next: (vehicles) => {
         this.vehicles = vehicles;
@@ -84,6 +102,7 @@ export class VehicleListComponent implements OnInit {
         console.error('Error loading vehicles:', error);
       }
     });
+    */
   }
 
   applyFilter(): void {
@@ -128,7 +147,7 @@ export class VehicleListComponent implements OnInit {
 
   reserveVehicle(vehicle: Vehicle): void {
     if (vehicle.id && !vehicle.isReserved) {
-      this.vehicleService.reserveVehicle(vehicle.id).subscribe({
+      this.mockDataService.reserveVehicle(vehicle.id).subscribe({
         next: () => {
           this.loadVehicles();
         },
@@ -141,7 +160,7 @@ export class VehicleListComponent implements OnInit {
 
   releaseVehicle(vehicle: Vehicle): void {
     if (vehicle.id && vehicle.isReserved) {
-      this.vehicleService.releaseVehicle(vehicle.id).subscribe({
+      this.mockDataService.releaseVehicle(vehicle.id).subscribe({
         next: () => {
           this.loadVehicles();
         },
