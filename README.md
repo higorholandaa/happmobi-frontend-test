@@ -1,4 +1,4 @@
-﻿# HappiMobi — Frontend Test
+﻿# HappiMobi Frontend Test
 
 Aplicação mobile-first para visualização e filtragem de veículos disponíveis para locação. Desenvolvida como teste técnico frontend, com foco em organização de código, componentização e boas práticas Angular.
 
