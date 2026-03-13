@@ -1,0 +1,70 @@
+@use '@angular/material' as mat;
+
+// Bootstrap grid only
+@import 'bootstrap/dist/css/bootstrap-grid.min.css';
+@import 'bootstrap/dist/css/bootstrap-utilities.min.css';
+
+// Material theming
+@include mat.core();
+
+$primary: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$red-palette,
+  ),
+));
+
+html {
+  @include mat.all-component-themes($primary);
+}
+
+// ============================================================
+// Design System — Tokens globais (CSS Custom Properties)
+// ============================================================
+// Disponíveis em qualquer componente via var(--nome-da-variavel)
+// ============================================================
+:root {
+  // --- Cores principais ---
+  --cor-primaria:      #C61D35; // vermelho — botões e destaques
+  --cor-escura:        #1D2B3A; // azul escuro — fundos escuros e botões secundários
+  --cor-texto:         #1a2332; // azul texto — títulos e campos de texto
+  --cor-gradiente-fim: #2a3547; // azul médio — fim do gradiente do cabeçalho
+
+  // --- Neutros ---
+  --cor-branca:        #ffffff;
+  --cinza-texto:       #333333;
+  --cinza-chip:        #444444;
+  --cinza-acao:        #555555;
+  --cinza-detalhe:     #666666;
+  --cinza-vazio:       #999999;
+  --cinza-borda:       #dddddd;
+  --cinza-borda-card:  #eeeeee;
+  --cinza-borda-chip:  #efefef;
+  --cinza-checkbox:    #F6F5F4;
+  --cinza-secao:       rgba(195, 185, 181, 0.12); // fundo dos cabeçalhos de seção
+
+  // --- Feedback ---
+  --cor-erro:          #ff6b6b;
+
+  // --- Tipografia ---
+  --fonte-principal:   'Poppins', sans-serif;
+  --fonte-titulos:     'Inter', sans-serif;
+  --fonte-card:        Helvetica, Arial, sans-serif;
+
+  // --- Raios de borda ---
+  --raio-input:        2rem;    // inputs e botões arredondados
+  --raio-card:         0.5rem;  // cards e caixas de busca
+  --raio-checkbox:     0.25rem; // checkbox customizado
+  --raio-botao-filtro: 1.75rem; // botão "Aplicar filtros"
+  --raio-botao-qr:     2.4375rem; // botão "Ler QR Code"
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f5f7;
+}

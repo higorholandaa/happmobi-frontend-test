@@ -1,0 +1,9 @@
+<mat-card class="car-card">
+  <img [src]="car.image" [alt]="car.name" class="car-image" />
+  <div class="car-info">
+    <h3 class="car-name">{{ car.name }} - {{ car.year }}</h3>
+    <p class="car-detail">{{ car.type }}</p>
+    <p class="car-detail">Motor {{ car.engine }}</p>
+    <p class="car-detail">{{ car.seats }} Lugares</p>
+  </div>
+</mat-card>

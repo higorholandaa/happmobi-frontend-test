@@ -1,0 +1,61 @@
+<div class="home-wrapper">
+
+  <!-- Cabeçalho com avatar e saudação do usuário -->
+  <div class="home-header">
+    <div class="user-info">
+      <div class="avatar">
+        <img [src]="usuario?.avatar || 'assets/images/ui/user.png'" [alt]="usuario?.name" class="avatar-img" />
+      </div>
+      <h2 class="greeting">Olá, {{ usuario?.name }}</h2>
+    </div>
+  </div>
+
+  <!-- Barra de busca e botão de filtros -->
+  <div class="search-row container-fluid px-3 pt-3">
+    <div class="row g-2 align-items-center">
+      <div class="col">
+        <div class="search-box">
+          <mat-icon [svgIcon]="icones.search" class="search-icon"></mat-icon>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Buscar carro"
+            [(ngModel)]="termoBusca"
+            (input)="buscarCarros()"
+          />
+        </div>
+      </div>
+      <div class="col-auto">
+        <button mat-stroked-button class="btn-filter" (click)="abrirFiltros()">
+          <mat-icon [svgIcon]="icones.filter"></mat-icon>
+          Filtrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lista de carros disponíveis -->
+  <div class="car-list-section container-fluid px-3 pb-20">
+    <h3 class="section-title">Últimas reservas</h3>
+
+    <div *ngIf="carros.length === 0" class="no-results">
+      <mat-icon>directions_car</mat-icon>
+      <p>Nenhum carro encontrado.</p>
+    </div>
+
+    <div class="cars-scroll">
+      <app-car-card *ngFor="let carro of carros" [car]="carro" />
+    </div>
+  </div>
+
+  <!-- Botão de acesso por QR code -->
+  <div class="qr-section container-fluid px-3">
+    <button mat-flat-button class="btn-qr">
+      <mat-icon [svgIcon]="icones.qrCode"></mat-icon>
+      Acessar por QR code
+    </button>
+  </div>
+
+</div>
+
+<app-bottom-nav />

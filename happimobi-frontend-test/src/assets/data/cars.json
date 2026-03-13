@@ -1,0 +1,119 @@
+﻿[
+  {
+    "id": 1,
+    "name": "Mini Cooper",
+    "year": 2021,
+    "type": "Hatch compacto",
+    "engine": "1.8",
+    "seats": 5,
+    "image": "assets/images/cars/mini-cooper.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Ford Ka",
+    "year": 2017,
+    "type": "Hatch medio",
+    "engine": "1.0",
+    "seats": 5,
+    "image": "assets/images/cars/ford-ka.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Duster",
+    "year": 2020,
+    "type": "SUV compacto",
+    "engine": "1.6",
+    "seats": 5,
+    "image": "assets/images/cars/duster.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Jeep Compass",
+    "year": 2021,
+    "type": "SUV medio",
+    "engine": "1.8",
+    "seats": 7,
+    "image": "assets/images/cars/jeep-compass.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Toro",
+    "year": 2016,
+    "type": "Picape media",
+    "engine": "1.6",
+    "seats": 5,
+    "image": "assets/images/cars/toro.jpg"
+  },
+  {
+    "id": 6,
+    "name": "T-Cross",
+    "year": 2020,
+    "type": "Crossover",
+    "engine": "1.6",
+    "seats": 5,
+    "image": "assets/images/cars/t-cross.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Strada",
+    "year": 2016,
+    "type": "Picape leve",
+    "engine": "1.4",
+    "seats": 2,
+    "image": "assets/images/cars/strada.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Saveiro",
+    "year": 2018,
+    "type": "Picape leve-media",
+    "engine": "1.6",
+    "seats": 5,
+    "image": "assets/images/cars/saveiro.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Versa",
+    "year": 2019,
+    "type": "Sedan medio",
+    "engine": "1.4",
+    "seats": 5,
+    "image": "assets/images/cars/versa.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Jetta",
+    "year": 2021,
+    "type": "Sedan grande",
+    "engine": "2.0",
+    "seats": 5,
+    "image": "assets/images/cars/jetta.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Doblo",
+    "year": 2018,
+    "type": "Minivan",
+    "engine": "1.8",
+    "seats": 7,
+    "image": "assets/images/cars/doblo.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Fiorino",
+    "year": 2017,
+    "type": "Utilitario leve",
+    "engine": "1.6",
+    "seats": 2,
+    "image": "assets/images/cars/fiorino.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Partner",
+    "year": 2016,
+    "type": "Utilitario",
+    "engine": "1.6",
+    "seats": 2,
+    "image": "assets/images/cars/partner.jpg"
+  }
+]

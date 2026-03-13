@@ -1,0 +1,83 @@
+<div class="filters-page">
+
+  <!-- Dark header -->
+  <div class="dark-header">
+    <mat-icon [svgIcon]="icons.search" class="header-search-icon"></mat-icon>
+    <span class="header-title">BUSCA</span>
+  </div>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <button mat-button class="top-action" (click)="cancel()">CANCELAR</button>
+    <span class="top-title">FILTROS</span>
+    <button mat-button class="top-action" (click)="clearFilters()">LIMPAR</button>
+  </div>
+
+  <div class="content">
+
+    <!-- Tipos de carrocerias -->
+    <div class="filter-section">
+      <div class="section-header" (click)="toggleSection('types')">
+        <span>Tipos de carrocerias</span>
+        <mat-icon [svgIcon]="icons.chevronLeft" class="chevron" [class.open]="openSections.types"></mat-icon>
+      </div>
+      <div class="row g-0 section-content" *ngIf="openSections.types">
+        <div class="col-6" *ngFor="let type of carTypes">
+          <label class="checkbox-item">
+            <input
+              type="checkbox"
+              [checked]="isTypeSelected(type)"
+              (change)="toggleType(type)"
+            />
+            <span>{{ type }}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tipos de motores -->
+    <div class="filter-section">
+      <div class="section-header" (click)="toggleSection('engines')">
+        <span>Tipos de motores</span>
+        <mat-icon [svgIcon]="icons.chevronLeft" class="chevron" [class.open]="openSections.engines"></mat-icon>
+      </div>
+      <div class="chips-row section-content" *ngIf="openSections.engines">
+        <button
+          *ngFor="let engine of engineOptions"
+          class="chip"
+          [class.selected]="isEngineSelected(engine)"
+          (click)="toggleEngine(engine)"
+        >
+          Motor {{ engine }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Quantidade de lugares -->
+    <div class="filter-section">
+      <div class="section-header" (click)="toggleSection('seats')">
+        <span>Quantidade de lugares</span>
+        <mat-icon [svgIcon]="icons.chevronLeft" class="chevron" [class.open]="openSections.seats"></mat-icon>
+      </div>
+      <div class="chips-row section-content" *ngIf="openSections.seats">
+        <button
+          *ngFor="let seat of seatsOptions"
+          class="chip chip-seat"
+          [class.selected]="isSeatSelected(seat)"
+          (click)="toggleSeat(seat)"
+        >
+          {{ seat | number: '2.0' }}
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Apply button -->
+  <div class="footer">
+    <button mat-flat-button class="btn-apply" (click)="applyFilters()">
+      APLICAR FILTRO
+    </button>
+  </div>
+
+</div>

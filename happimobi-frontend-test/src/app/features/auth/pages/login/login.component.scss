@@ -1,0 +1,218 @@
+// ============================================================
+// Login — Estilos
+// ============================================================
+// Sumário:
+//  1. .login-wrapper   — página inteira (fundo escuro + imagem de fundo)
+//  2. .login-card      — cartão central com formulário
+//  3. .logo-area       — área do logo e nome da marca
+//  4. .logo-shield     — moldura circular do ícone
+//  5. .logo-img        — imagem do logo dentro da moldura
+//  6. .brand-name      — texto "GUARDIANS"
+//  7. form             — formulário de login
+//  8. .full-width      — campos de input (sobrescreve Angular Material)
+//  9. .error-msg       — mensagem de erro de credenciais
+// 10. .btn-enter       — botão "ENTRAR"
+// 11. .forgot-link     — link "Esqueci minha senha"
+// 12. .register-text   — texto fixo no rodapé "Criar conta"
+// 13. .register-link   — link dentro do texto de cadastro
+// ============================================================
+
+// 1. Página inteira com fundo escuro
+.login-wrapper {
+  align-items: center;
+  background-color: var(--cor-escura);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 1.5rem;
+  position: relative;
+
+  // Imagem decorativa no topo (logo-bg em baixa opacidade)
+  &::before {
+    background-image: url(/assets/images/ui/logo-bg.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    height: 37.5%;
+    left: 80%;
+    opacity: 0.1;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+}
+
+// 2. Cartão central com os campos e botões
+.login-card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 22.125rem;
+  width: 100%;
+}
+
+// 3. Área do logo e nome da marca
+.logo-area {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+// 4. Moldura circular ao redor do logo
+.logo-shield {
+  align-items: center;
+  background: transparent;
+  display: flex;
+  height: 4.5rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  width: 4.5rem;
+}
+
+// 5. Imagem do logo dentro da moldura
+.logo-img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+// 6. Nome "GUARDIANS" abaixo do logo
+.brand-name {
+  color: var(--cor-branca);
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
+  margin: 0;
+}
+
+// 7. Formulário de login
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+// 8. Campos de input — sobrescreve estilos do Angular Material
+.full-width {
+  width: 100%;
+
+  // Fundo branco e borda arredondada no campo
+  ::ng-deep .mat-mdc-form-field-flex {
+    background-color: var(--cor-branca);
+    border-radius: var(--raio-input) !important;
+    box-shadow: 0rem 0.1875rem 0.46875rem 0rem #0000000D;
+    height: 3.9375rem;
+  }
+
+  // Remove as bordas padrão do outline
+  ::ng-deep .mdc-notched-outline__leading,
+  ::ng-deep .mdc-notched-outline__notch,
+  ::ng-deep .mdc-notched-outline__trailing {
+    border-color: transparent !important;
+  }
+
+  // Espaçamento interno do campo
+  ::ng-deep .mat-mdc-form-field-infix {
+    padding: 0.75rem 1rem;
+  }
+
+  // Tipografia do texto digitado
+  ::ng-deep input.mat-mdc-input-element {
+    caret-color: var(--cor-texto);
+    color: var(--cor-texto);
+    font-family: var(--fonte-principal);
+    font-size: 1.125rem;
+    font-weight: 400;
+    letter-spacing: 0%;
+    line-height: 100%;
+  }
+
+  // Placeholder sempre visível (Angular Material oculta por padrão)
+  ::ng-deep input.mat-mdc-input-element::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-family: var(--fonte-principal);
+    font-size: 1.125rem;
+    font-weight: 400;
+    letter-spacing: 0%;
+    line-height: 100%;
+    opacity: 1 !important;
+  }
+
+  ::ng-deep .mdc-text-field input::placeholder {
+    opacity: 1 !important;
+  }
+
+  // Arredondamento das extremidades do outline
+  ::ng-deep .mdc-notched-outline__leading {
+    border-radius: var(--raio-input) 0 0 var(--raio-input) !important;
+  }
+
+  ::ng-deep .mdc-notched-outline__trailing {
+    border-radius: 0 var(--raio-input) var(--raio-input) 0 !important;
+  }
+}
+
+// 9. Mensagem de erro ao falhar o login
+.error-msg {
+  color: var(--cor-erro);
+  font-size: 0.8125rem;
+  margin: 0;
+  text-align: center;
+}
+
+// 10. Botão principal de acesso
+.btn-enter {
+  background-color: var(--cor-primaria) !important;
+  border-radius: var(--raio-input) !important;
+  color: var(--cor-branca) !important;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  height: 3.6875rem;
+  letter-spacing: 0.125rem;
+  margin-top: 1.5rem;
+  width: 100% !important;
+}
+
+// 11. Link para recuperação de senha
+.forgot-link {
+  color: var(--cor-branca);
+  display: block;
+  font-family: var(--fonte-principal);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  margin-top: 0.75rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+// 12. Texto fixo no rodapé para novo cadastro
+.register-text {
+  bottom: 2rem;
+  color: var(--cor-branca);
+  font-family: var(--fonte-principal);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  left: 0;
+  margin: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  z-index: 1;
+}
+
+// 13. Link "Criar conta" dentro do texto de cadastro
+.register-link {
+  color: var(--cor-branca);
+  font-weight: 400;
+  text-decoration: underline;
+}
